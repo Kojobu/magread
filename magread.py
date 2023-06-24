@@ -16,13 +16,11 @@ def read_component(register):
     unsigned = b.read_word_data(address, register)
     return (unsigned & 0x7fff) - (unsigned & 0x8000)
 
-# continous 14-bit measurement at 1kHz
 write(0x1b, 0b11011000)
 
 write(0x5c, 0x00)
 write(0x5d, 0x00)
 
-# turn on DRDY pin
 write(0x1c, 0x0c)
 
 memory_size = 600 # better don't change this
